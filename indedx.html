@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><form action=""></form></title>
+</head>
+<body>
+    <head> 
+        <title>Input Nilai</title> 
+        <style> 
+            table, td, th { 
+              border: 1px solid black; 
+            } 
+        </style> 
+    </head> 
+    <body> 
+    <h3>Nilai Mahasiswa</h3> 
+     
+    <pre> 
+    NPM     <input type="text" name="npm" id="npm"> <br> 
+    Nama    <input type="text" name="nama" id="nama"> <br> 
+    Nilai   <input type="text" name="nilai" id="nilai"> <br> 
+     
+    <input name="save" type="submit" onclick="submitData()" value="Submit"> 
+    </pre> 
+ 
+        <table id="tableNilai" width="400" > 
+            <tr> 
+                <th>NPM</th> 
+                <th>Nama</th> 
+                <th>Nilai</th> 
+                <th>Status</th>
+                <th>Grade</th>
+            </tr> 
+        </table> 
+     
+</body> 
+ 
+<script type="text/javascript"> 
+    function submitData() { 
+        var npm = document.getElementById("npm").value; 
+        var nama = document.getElementById("nama").value; 
+        var nilai = document.getElementById("nilai").value; 
+        if (npm != "" && nama!="" && nilai !="") { 
+
+            var status = "Tidak lulus";
+            var grade = "";
+            if(nilai >= 80) grade = "A"
+            else if(nilai >= 70) grade = "B"
+            else if(nilai >= 60) grade = "C"
+            else if(nilai >= 50) grade = "D"
+            else grade = "E"
+
+            if(nilai >= 60) status = "Lulus"
+             
+            
+            var table = document.getElementById("tableNilai"); 
+            var row = table.insertRow(1); 
+            var cell1 = row.insertCell(0); 
+            var cell2 = row.insertCell(1); 
+            var cell3 = row.insertCell(2); 
+            var cell4 = row.insertCell(3); 
+            var cell5 = row.insertCell(4); 
+            
+
+            cell1.innerHTML = npm; 
+            cell2.innerHTML = nama; 
+            cell3.innerHTML = nilai; 
+            cell4.innerHTML = status; 
+            cell5.innerHTML = grade; 
+           
+             
+             
+        }else{ 
+            alert('Data harus diisi secara lengkap !'); 
+        } 
+    } 
+</script> 
+</html>
